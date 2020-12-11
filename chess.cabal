@@ -1,0 +1,69 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 20148600ebc88cbda1d4885ae80a620d3d26f5445313702591cf43912e3afc9e
+
+name:           chess
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/chess#readme>
+homepage:       https://github.com/githubuser/chess#readme
+bug-reports:    https://github.com/githubuser/chess/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2020 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/chess
+
+library
+  exposed-modules:
+      Chess.Domain.Elements
+      Chess.Domain.Game
+      Chess.Domain.Parsing
+  other-modules:
+      Paths_chess
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+      , text
+      , megaparsec
+  default-language: Haskell2010
+  default-extensions:
+      LambdaCase
+    , OverloadedStrings
+
+executable chess-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_chess
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , chess
+  default-language: Haskell2010
+
+test-suite chess-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_chess
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , chess
+  default-language: Haskell2010
